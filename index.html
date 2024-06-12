@@ -1,9 +1,23 @@
-<html>
- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Capture IP on Click</title>
+<script>
+function sendIP() {
+  fetch('/.netlify/functions/captureIP', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+}
+</script>
+</head>
 <body>
-  <h1>Francois</h1>
-  <p>Welcome to my website!</p>
-  <img src="https://content.codecademy.com/articles/github-pages-via-web-app/happy-ice-cream.gif" />
+<a href="javascript:void(0);" onclick="sendIP()">Click here to interact</a>
 </body>
- 
 </html>
