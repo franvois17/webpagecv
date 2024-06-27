@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "axis": {"labelFontSize": 12, "titleFontSize": 14}, "title": {"anchor": "start", "color": "gray", "font": "Helvetica", "fontSize": 20}}, "data": {"name": "data-1a9d3dfb6fe590809c3f6b5ef40ce597"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "N\u00famero de Arrestos", "scale": {"scheme": "blues"}, "type": "quantitative"}, "tooltip": [{"field": "Fecha de Detenci\u00f3n", "title": "Fecha de Detenci\u00f3n", "type": "temporal"}, {"field": "N\u00famero de Arrestos", "title": "N\u00famero de Arrestos", "type": "quantitative"}], "x": {"field": "Fecha de Detenci\u00f3n", "title": "Fecha de Detenci\u00f3n", "type": "temporal"}, "y": {"field": "N\u00famero de Arrestos", "title": "N\u00famero de Arrestos", "type": "quantitative"}}, "height": 400, "params": [{"name": "param_3", "select": {"type": "interval", "encodings": ["x", "y"]}, "bind": "scales"}], "title": "Top 10 Fechas con M\u00e1s Arrestos", "width": 800, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-1a9d3dfb6fe590809c3f6b5ef40ce597": [{"Fecha de Detenci\u00f3n": "2017-02-19T00:00:00", "N\u00famero de Arrestos": 1911}, {"Fecha de Detenci\u00f3n": "2017-04-02T00:00:00", "N\u00famero de Arrestos": 1587}, {"Fecha de Detenci\u00f3n": "2018-02-04T00:00:00", "N\u00famero de Arrestos": 1172}, {"Fecha de Detenci\u00f3n": "2021-04-11T00:00:00", "N\u00famero de Arrestos": 1112}, {"Fecha de Detenci\u00f3n": "2021-02-07T00:00:00", "N\u00famero de Arrestos": 1027}, {"Fecha de Detenci\u00f3n": "2023-02-05T00:00:00", "N\u00famero de Arrestos": 1013}, {"Fecha de Detenci\u00f3n": "2023-08-20T00:00:00", "N\u00famero de Arrestos": 887}, {"Fecha de Detenci\u00f3n": "2023-10-15T00:00:00", "N\u00famero de Arrestos": 754}, {"Fecha de Detenci\u00f3n": "2024-04-21T00:00:00", "N\u00famero de Arrestos": 666}, {"Fecha de Detenci\u00f3n": "2019-10-03T00:00:00", "N\u00famero de Arrestos": 516}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

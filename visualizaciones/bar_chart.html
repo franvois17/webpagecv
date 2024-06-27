@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.8.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "axis": {"labelFontSize": 12, "titleFontSize": 14}, "title": {"anchor": "start", "color": "gray", "font": "Helvetica", "fontSize": 20}}, "layer": [{"mark": {"type": "bar"}, "encoding": {"color": {"field": "Sexo", "scale": {"scheme": "category20b"}, "type": "nominal"}, "tooltip": [{"field": "Sexo", "type": "nominal"}, {"field": "N\u00famero de Arrestos", "type": "quantitative"}], "x": {"field": "Sexo", "title": "Sexo", "type": "ordinal"}, "y": {"field": "N\u00famero de Arrestos", "title": "N\u00famero de Arrestos", "type": "quantitative"}}, "name": "view_1", "title": "N\u00famero de Arrestos por Sexo"}, {"mark": {"type": "text", "align": "center", "baseline": "bottom", "dy": -10}, "encoding": {"color": {"field": "Sexo", "scale": {"scheme": "category20b"}, "type": "nominal"}, "text": {"field": "N\u00famero de Arrestos", "type": "quantitative"}, "tooltip": [{"field": "Sexo", "type": "nominal"}, {"field": "N\u00famero de Arrestos", "type": "quantitative"}], "x": {"field": "Sexo", "title": "Sexo", "type": "ordinal"}, "y": {"field": "N\u00famero de Arrestos", "title": "N\u00famero de Arrestos", "type": "quantitative"}}, "title": "N\u00famero de Arrestos por Sexo"}], "data": {"name": "data-9097a83b3a77cf9bddb59e870907aa79"}, "height": 400, "params": [{"name": "param_2", "select": {"type": "interval", "encodings": ["x", "y"]}, "bind": "scales", "views": ["view_1"]}], "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v5.8.0.json", "datasets": {"data-9097a83b3a77cf9bddb59e870907aa79": [{"Sexo": "HOMBRE", "N\u00famero de Arrestos": 613234}, {"Sexo": "MUJER", "N\u00famero de Arrestos": 68496}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

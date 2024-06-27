@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualización de Datos - Mi Portafolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#about">Sobre mi</a></li>
+                <li><a href="index.html#portfolio">Portafolio</a></li>
+                <li><a href="https://www.linkedin.com/in/franvois" target="_blank">LinkedIn</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="project-content">
+            <h1>Visualización de Datos</h1>
+        
+            <h2>Descripción:</h2>
+            <p>Este proyecto tuvo como objetivo la visualización adecuada de
+                 las bases de datos de personas detenidas en el Ecuador. 
+                Estos datos fueron obtenidos a través del portal de datos abiertos del Ecuador.
+            </p>
+            <section id="photologo">
+                <img src="images/logo.svg" alt="Datos Abiertos Logo">
+            </section>
+        </section>
+        
+        <section class="project-content">
+            <h1>Análisis Correspondiente a los años 2016 - Abril 2024 </h1>
+            <p>Descripción del análisis...</p>
+            <!-- Incluir visualizaciones -->
+            <h2>Visualizaciones</h2>
+            <div class="visualization">
+                <h3>Gráfico de Barras</h3>
+                <p>Se realizó una comparativa del número total de arrestos históricos según el género.</p>
+                <iframe src="visualizaciones/bar_chart.html" style="width: 100%; height: 600px;" frameborder="0"></iframe>
+            </div>
+            <div class="visualization">
+                <h3>Mapa Coroplético</h3>
+                <p>Si mueves la barra en la parte inferior del gráfico, 
+                    podrás visualizar a través de colores el número de detenciones por provincias. </p>
+                <iframe src="visualizaciones/cloropleth_map.html" style="width: 100%; height: 600px;" frameborder="0"></iframe>
+            </div>
+            <div class="visualization">
+                <h3>Mapa de Calor</h3>
+                <p>Este gráfico te muestra, a través del color, el número de detenciones por provincia durante
+                     el tiempo de estudio: mientras más brillante es el color, mayor es el número de detenciones. </p>
+                <iframe src="visualizaciones/heatmap.html" style="width: 100%; height: 600px;" frameborder="0"></iframe>
+            </div>
+            <div class="visualization">
+                <h3>Gráfico de Área Apilada</h3>
+                <p>Este gráfico nos muestra el número de detenciones a través de los años. Si te fijas,
+                    el color en el área muestra la cantidad de hombres y mujeres detenidos.</p>
+                <iframe src="visualizaciones/stacked_area_chart.html" style="width: 100%; height: 600px;" frameborder="0"></iframe>
+            </div>
+            <div class="visualization">
+                <h3>Histograma Apilado</h3>
+                <p></p>
+                <iframe src="visualizaciones/stacked_histogram.html" style="width: 100%; height: 600px;" frameborder="0"></iframe>
+            </div>
+            <div class="visualization">
+                <h3>Top 10 Fechas - Gráfico de Barras</h3>
+                <p>Este gráfico nos muestra los 10 días con más detenciones. Es curioso que el día
+                     con más detenciones de los últimos 8 años fue durante un día de elecciones.</p>
+                <iframe src="visualizaciones/top_10_dates_bar_chart.html" style="width: 100%; height: 600px;" frameborder="0"></iframe>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Jenner Baquero</p>
+    </footer>
+</body>
+</html>

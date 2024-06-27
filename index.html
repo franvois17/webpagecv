@@ -1,52 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Mi Portafolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>Your Name</h1>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#video">Video Presentation</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">Sobre mi</a></li>
+                <li><a href="project1.html">Portafolio</a></li>
+                <li><a href="https://www.linkedin.com/in/franvois" target="_blank">LinkedIn</a></li>
+            </ul>
+        </nav>
     </header>
+    <section id="photo">
+        <img src="images/header-image.png.webp" alt="Data Science Banner">
+    </section>
     <main>
         <section id="about">
-            <h2>About Me</h2>
-            <p>Write a brief introduction about yourself here.</p>
+            <h2>Sobre mi</h2>
+            <section id="photo-perfil"> <!-- Corregido aquí -->
+                <img src="perfil.jpg" alt="Foto de Jenner Baquero">
+            </section>
+            <p>Soy un científico de datos con una profunda pasión por las ciencias humanistas.
+                Mi objetivo es utilizar mis conocimientos en ciencia de datos para optimizar y
+                mejorar la calidad de vida humana. Mi experiencia abarca desde la participación 
+                en análisis y procesamiento de datos en fundaciones hasta en empresas de diversos
+                sectores. 
+                Creo firmemente en el poder de los datos para generar un impacto positivo y 
+                significativo en la sociedad.
+                Antes de escoger un proyecto laboral, me gusta entender a fondo la misión y 
+                visión de la empresa 
+                para poder proyectar de mejor manera mi rol como científico de datos. Mi 
+                enfoque se centra en 
+                soluciones innovadoras y sostenibles que promuevan el bienestar y el desarrollo humano.
+                Mi mayor interés es aprender y disfrutar de cada nuevo flujo de trabajo, 
+                siempre buscando la excelencia y la mejora continua. 
+                Si estás visitando mi página web, es muy 
+                probable que tengamos la oportunidad de trabajar juntos.
+                Estoy emocionado por cada nueva oportunidad  
+                y la posibilidad de  contribuir en un nuevo proyecto.</p>
         </section>
-        <section id="video">
-            <h2>Video Presentation</h2>
-            <video controls>
-                <source src="path/to/your-video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </section>
-        <section id="projects">
-            <h2>Projects</h2>
-            <ul>
-                <li><a href="project1.html">Project 1</a></li>
-                <li><a href="project2.html">Project 2</a></li>
-                <li><a href="project3.html">Project 3</a></li>
-            </ul>
-        </section>
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
-        </section>
+        
+
     </main>
     <footer>
-        <p>&copy; 2024 Your Name</p>
+        <p>&copy; 2024 Jenner Baquero</p>
     </footer>
 </body>
 </html>
