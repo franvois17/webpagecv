@@ -1,9 +1,12 @@
+/* General */
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     box-sizing: border-box;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
 body {
@@ -11,10 +14,11 @@ body {
     flex-direction: column;
 }
 
+/* Header */
 header {
     width: 100%;
     background-color: #072539;
-    color: #fff;
+    color: white;
     padding: 1em 0;
     position: fixed;
     top: 0;
@@ -22,6 +26,11 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0;
+}
+
+header h1 {
+    font-size: 1.8em;
     margin: 0;
 }
 
@@ -39,31 +48,31 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: white;
     text-decoration: none;
     font-size: 1.2em;
 }
 
+/* Main */
 main {
     flex: 1;
-    padding-top: 4em;
-    margin: 0;
+    padding-top: 6em; /* Ajuste para evitar que el header tape el contenido */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
+/* Secciones */
 section {
     padding: 2em 1em;
     max-width: 1200px;
     margin: 0 auto;
 }
 
+/* Imagen de portada */
 #photo {
-    text-align: center;
-    padding: 0;
-    margin: 0;
-    margin-top: 3em;
-}
-
-#photologo {
     text-align: center;
     padding: 0;
     margin: 0;
@@ -81,6 +90,7 @@ section {
     border: 0;
 }
 
+/* Imagen de perfil */
 #about #photo-perfil {
     text-align: center;
     margin: 0 auto 2em;
@@ -96,11 +106,12 @@ section {
     padding: 0;
 }
 
+/* Sobre mí y Portafolio */
 #about, #portfolio {
     padding: 4em 2em;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+    background-color: white;
     margin-top: 2em;
 }
 
@@ -137,9 +148,10 @@ section {
     text-decoration: none;
 }
 
+/* Footer */
 footer {
     background-color: #333;
-    color: #fff;
+    color: white;
     text-align: center;
     padding: 1em 0;
     width: 100%;
@@ -147,6 +159,7 @@ footer {
     margin: 0;
 }
 
+/* Contenido de proyectos */
 .project-content {
     max-width: 800px;
     margin: 0 auto;
@@ -170,6 +183,7 @@ footer {
     text-align: justify;
 }
 
+/* Carrusel */
 .carousel {
     position: relative;
     width: 100%;
@@ -219,4 +233,41 @@ footer {
 
 .carousel-control-next {
     right: 0;
+}
+
+/* 🔹 Ajustes para la Política de Privacidad */
+.privacy-container {
+    max-width: 800px;
+    background: white;
+    padding: 2em;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: left;
+}
+
+.privacy-container h1 {
+    text-align: center;
+    font-size: 2em;
+    color: #072539;
+}
+
+.privacy-container h2 {
+    color: #072539;
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+.privacy-container p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.privacy-container a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.privacy-container a:hover {
+    text-decoration: underline;
 }
