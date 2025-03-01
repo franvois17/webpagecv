@@ -1,4 +1,4 @@
-/* General */
+/* 🌎 Estilos Generales */
 html, body {
     height: 100%;
     margin: 0;
@@ -14,7 +14,7 @@ body {
     flex-direction: column;
 }
 
-/* Header */
+/* 📌 Header (General) */
 header {
     width: 100%;
     background-color: #072539;
@@ -53,25 +53,24 @@ nav ul li a {
     font-size: 1.2em;
 }
 
-/* Main */
+/* 📌 Main (General) */
 main {
     flex: 1;
-    padding-top: 6em; /* Ajuste para evitar que el header tape el contenido */
+    padding-top: 6em;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
     flex-direction: column;
 }
 
-/* Secciones */
+/* 📌 Secciones */
 section {
     padding: 2em 1em;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Imagen de portada */
+/* 📌 Imagen de portada */
 #photo {
     text-align: center;
     padding: 0;
@@ -90,7 +89,7 @@ section {
     border: 0;
 }
 
-/* Imagen de perfil */
+/* 📌 Imagen de perfil */
 #about #photo-perfil {
     text-align: center;
     margin: 0 auto 2em;
@@ -106,7 +105,7 @@ section {
     padding: 0;
 }
 
-/* Sobre mí y Portafolio */
+/* 📌 Sobre mí y Portafolio */
 #about, #portfolio {
     padding: 4em 2em;
     border-radius: 10px;
@@ -148,7 +147,7 @@ section {
     text-decoration: none;
 }
 
-/* Footer */
+/* 📌 Footer */
 footer {
     background-color: #333;
     color: white;
@@ -159,7 +158,7 @@ footer {
     margin: 0;
 }
 
-/* Contenido de proyectos */
+/* 📌 Contenido de proyectos */
 .project-content {
     max-width: 800px;
     margin: 0 auto;
@@ -183,7 +182,7 @@ footer {
     text-align: justify;
 }
 
-/* Carrusel */
+/* 📌 Carrusel */
 .carousel {
     position: relative;
     width: 100%;
@@ -235,39 +234,58 @@ footer {
     right: 0;
 }
 
-/* 🔹 Ajustes para la Política de Privacidad */
-.privacy-container {
+/* 🔹 Ajustes solo para la Política de Privacidad */
+.privacy-page header {
+    background-color: #102840; /* Color diferente solo en privacy.html */
+    padding: 2em 0;
+    text-align: center;
+    position: relative; /* Evita que el header sea fijo */
+}
+
+.privacy-page header h1 {
+    font-size: 2em;
+    margin: 0;
+    color: white;
+}
+
+/* Ajuste del main solo en Política de Privacidad */
+.privacy-page main {
+    padding-top: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Caja de contenido en Política de Privacidad */
+.privacy-page section {
     max-width: 800px;
     background: white;
     padding: 2em;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    text-align: left;
+    margin-bottom: 1.5em;
 }
 
-.privacy-container h1 {
-    text-align: center;
-    font-size: 2em;
-    color: #072539;
-}
-
-.privacy-container h2 {
+/* Encabezados en Política de Privacidad */
+.privacy-page h2 {
     color: #072539;
     font-size: 1.5em;
-    margin-top: 20px;
+    text-align: center;
 }
 
-.privacy-container p {
+/* Párrafos */
+.privacy-page p {
     font-size: 1.2em;
     line-height: 1.6;
     text-align: justify;
 }
 
-.privacy-container a {
+/* Estilo para enlaces en Política de Privacidad */
+.privacy-page a {
     color: #007BFF;
     text-decoration: none;
 }
 
-.privacy-container a:hover {
+.privacy-page a:hover {
     text-decoration: underline;
 }
