@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Publicaciones en Facebook</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script>
+        function generateFakeData() {
+            let keyword = document.getElementById("keyword").value.trim();
+            if (!keyword) {
+                alert("Por favor, ingresa un hashtag o palabra clave.");
+                return;
+            }
+
+            // Simular datos de publicaciones con el hashtag ingresado
+            let fakePosts = Math.floor(Math.random() * 100) + 10;
+            let engagement = {
+                likes: Math.floor(Math.random() * 500) + 50,
+                comments: Math.floor(Math.random() * 200) + 20,
+                shares: Math.floor(Math.random() * 150) + 10
+            };
+
+            let sentimentData = {
+                positive: Math.floor(Math.random() * fakePosts * 0.6),
+                neutral: Math.floor(Math.random() * fakePosts * 0.3),
+                negative: Math.floor(Math.random() * fakePosts * 0.2)
+            };
+
+            let frequencyData = Array.from({ length: 7 }, () => Math.floor(Math.random() * 20) + 1);
+
+            document.getElementById("summary").innerHTML = `
+                <h5>Resumen del Análisis</h5>
+                <p><strong>Hashtag Analizado:</strong> #${keyword}</p>
+                <p><strong>Total de Publicaciones:</strong> ${fakePosts}</p>
+                <p><strong>Interacción Promedio:</strong> ${engagement.likes} Me gusta, ${engagement.comments} Comentarios, ${engagement.shares} Compartidos</p>
+            `;
+
+            // Generar gráficos con los datos falsos
+            renderCharts(sentimentData, frequencyData, engagement);
+        }
+
+        function renderCharts(sentimentData, frequencyData, engagement) {
+            let ctx1 = document.getElementById('sentimentChart').getContext('2d');
+            let ctx2 = document.getElementById('frequencyChart').getContext('2d');
+            let ctx3 = document.getElementById('engagementChart').getContext('2d');
+
+            new Chart(ctx1, {
+                type: 'pie',
+                data: {
+                    labels: ['Positivo', 'Neutral', 'Negativo'],
+                    datasets: [{
+                        data: [sentimentData.positive, sentimentData.neutral, sentimentData.negative],
+                        backgroundColor: ['#4CAF50', '#FFC107', '#F44336']
+                    }]
+                }
+            });
+
+            new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: ['Día 1', 'Día 2', 'Día 3', 'Día 4', 'Día 5', 'Día 6', 'Día 7'],
+                    datasets: [{
+                        label: 'Cantidad de Publicaciones',
+                        data: frequencyData,
+                        backgroundColor: '#42A5F5'
+                    }]
+                }
+            });
+
+            new Chart(ctx3, {
+                type: 'bar',
+                data: {
+                    labels: ['Me Gusta', 'Comentarios', 'Compartidos'],
+                    datasets: [{
+                        label: 'Interacción Promedio',
+                        data: [engagement.likes, engagement.comments, engagement.shares],
+                        backgroundColor: ['#2196F3', '#FFC107', '#4CAF50']
+                    }]
+                }
+            });
+        }
+    </script>
+</head>
+<body class="container mt-5">
+    <h2 class="mb-4">Análisis de Publicaciones en Facebook</h2>
+    <div class="input-group mb-3">
+        <input type="text" id="keyword" class="form-control" placeholder="Ingresa un hashtag o palabra clave">
+        <button class="btn btn-success" onclick="generateFakeData()">Analizar</button>
+    </div>
+
+    <div id="summary" class="my-4"></div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <canvas id="sentimentChart"></canvas>
+            <p class="text-center"><strong>Análisis de Sentimientos</strong></p>
+        </div>
+        <div class="col-md-4">
+            <canvas id="frequencyChart"></canvas>
+            <p class="text-center"><strong>Frecuencia de Publicaciones</strong></p>
+        </div>
+        <div class="col-md-4">
+            <canvas id="engagementChart"></canvas>
+            <p class="text-center"><strong>Nivel de Interacción</strong></p>
+        </div>
+    </div>
+</body>
+</html>
