@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,10 +13,10 @@
         const authCode = urlParams.get('code');
 
         if (authCode) {
-            // Store the authorization code in local storage or a session
+            // Store the authorization code in local storage
             localStorage.setItem('tiktokAuthCode', authCode);
-            
-            // Redirect to your main page after login
+
+            // Redirect back to the main page
             window.location.href = "index.html";
         } else {
             document.body.innerHTML = "<h2>Login Failed</h2><p>Authorization code not found.</p>";
