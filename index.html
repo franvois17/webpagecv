@@ -10,19 +10,21 @@
     <header>
         <nav>
             <ul>
-                <li><a href="#about">Sobre mi</a></li>
+                <li><a href="#about">Sobre mí</a></li>
                 <li><a href="project1.html">Portafolio</a></li>
                 <li><a href="analisis.html">Análisis de Publicaciones</a></li> <!-- Nueva pestaña -->
                 <li><a href="https://www.linkedin.com/in/franvois" target="_blank">LinkedIn</a></li>
             </ul>
         </nav>
     </header>
+
     <section id="photo">
         <img src="images/header-image.png.webp" alt="Data Science Banner">
     </section>
+
     <main>
         <section id="about">
-            <h2>Sobre mi</h2>
+            <h2>Sobre mí</h2>
             <section id="photo-perfil">
                 <img src="perfil.jpg" alt="Foto de Jenner Baquero">
             </section>
@@ -45,9 +47,36 @@
                 Estoy emocionado por cada nueva oportunidad  
                 y la posibilidad de contribuir en un nuevo proyecto.</p>
         </section>
+
+        <!-- TikTok Login Section -->
+        <section id="tiktok-login-section" class="text-center">
+            <h3>Iniciar sesión con TikTok</h3>
+            <button id="tiktok-login">
+                <img src="https://www.logo.wine/a/logo/TikTok/TikTok-Logo.wine.svg" alt="TikTok Logo" width="30">
+                Log in with TikTok
+            </button>
+            <p id="login-status"></p>
+        </section>
     </main>
+
     <footer>
         <p>&copy; 2024 Jenner Baquero | <a href="privacy.html">Política de Privacidad</a></p>
     </footer>
+
+    <script>
+        document.getElementById("tiktok-login").addEventListener("click", function() {
+            const clientKey = "YOUR_CLIENT_KEY";  // Replace with your TikTok Client Key
+            const redirectURI = "https://data-web-solutions.software/auth.html";
+            const authURL = `https://www.tiktok.com/auth/authorize/?client_key=${clientKey}&scope=user.info.basic&response_type=code&redirect_uri=${encodeURIComponent(redirectURI)}`;
+
+            window.location.href = authURL;
+        });
+
+        // Check if the user has logged in
+        const authCode = localStorage.getItem('tiktokAuthCode');
+        if (authCode) {
+            document.getElementById("login-status").innerHTML = `<strong>Logged in with TikTok!</strong>`;
+        }
+    </script>
 </body>
 </html>
