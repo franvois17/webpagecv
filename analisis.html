@@ -36,41 +36,12 @@
     <!-- Fake "Login with TikTok" Button -->
     <button class="login-btn" onclick="redirectToTikTok()">Login with TikTok</button>
 
-    <!-- Display Mock User Info -->
-    <div class="user-info" id="user-info">
-        <h2>User Information</h2>
-        <p><strong>Name:</strong> <span id="user-name"></span></p>
-        <p><strong>Open ID:</strong> <span id="user-id"></span></p>
-    </div>
-
     <script>
         function redirectToTikTok() {
             alert("Redirecting to TikTok Login...");
-            window.location.href = "https://www.tiktok.com/auth/authorize";
+            // Change this URL to your actual success page
+            window.location.href = "https://your-app-domain.com/tiktok-login-success";
         }
-
-        // Mock TikTok API Response (Fake User Data)
-        const mockUserData = {
-            "data": {
-                "user": {
-                    "display_name": "TestUser",
-                    "open_id": "123456789"
-                }
-            }
-        };
-
-        function fetchUserData() {
-            console.log("Fetching user data...");
-            // Simulating API response delay
-            setTimeout(() => {
-                document.getElementById("user-name").innerText = mockUserData.data.user.display_name;
-                document.getElementById("user-id").innerText = mockUserData.data.user.open_id;
-                document.getElementById("user-info").style.display = "block";
-            }, 2000); 
-        }
-
-        // Simulate user login after redirect (for app review purposes)
-        setTimeout(fetchUserData, 3000);
     </script>
 
 </body>
