@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Authentication</title>
+</head>
+<body>
+    <h2>Processing TikTok Login...</h2>
+    <script>
+        // Get the authorization code from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const authCode = urlParams.get('code');
+
+        if (authCode) {
+            // Store the authorization code in local storage or a session
+            localStorage.setItem('tiktokAuthCode', authCode);
+            
+            // Redirect to your main page after login
+            window.location.href = "index.html";
+        } else {
+            document.body.innerHTML = "<h2>Login Failed</h2><p>Authorization code not found.</p>";
+        }
+    </script>
+</body>
+</html>
