@@ -3,116 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Análisis de Comentarios en TikTok</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <script>
-        let isLoggedIn = false;
-        let authCode = localStorage.getItem("tiktokAuthCode");
-
-        function checkLogin() {
-            if (authCode) {
-                isLoggedIn = true;
-                document.getElementById("loginMessage").innerHTML = `<strong>Logged in with TikTok! ✅</strong>`;
-                document.getElementById("tiktok-login").style.display = "none";
-                document.getElementById("analysisSection").style.display = "block";
-            } else {
-                document.getElementById("loginMessage").innerHTML = `<strong>Please log in to analyze TikTok comments.</strong>`;
-                document.getElementById("analysisSection").style.display = "none";
-            }
-        }
-
-        function generateFakeData() {
-            if (!isLoggedIn) {
-                alert("Please log in with TikTok first.");
-                return;
-            }
-
-            let videoURL = document.getElementById("videoURL").value.trim();
-            if (!videoURL.startsWith("https://www.tiktok.com/")) {
-                alert("Please enter a valid TikTok video link.");
-                return;
-            }
-
-            // Simulating comment analysis
-            let totalComments = Math.floor(Math.random() * 150) + 50;
-            let sentimentData = {
-                positive: Math.floor(totalComments * Math.random() * 0.6),
-                neutral: Math.floor(totalComments * Math.random() * 0.3),
-                negative: Math.floor(totalComments * Math.random() * 0.2)
-            };
-            let engagement = {
-                likes: Math.floor(Math.random() * 5000) + 500,
-                shares: Math.floor(Math.random() * 1000) + 100,
-                views: Math.floor(Math.random() * 20000) + 1000
-            };
-
-            document.getElementById("summary").innerHTML = `
-                <h5>Analysis Summary</h5>
-                <p><strong>Video Analyzed:</strong> <a href="${videoURL}" target="_blank">View Video</a></p>
-                <p><strong>Total Comments:</strong> ${totalComments}</p>
-                <p><strong>Engagement:</strong> ${engagement.likes} Likes, ${engagement.shares} Shares, ${engagement.views} Views</p>
-            `;
-
-            renderCharts(sentimentData, engagement);
-        }
-
-        function renderCharts(sentimentData, engagement) {
-            new Chart(document.getElementById('sentimentChart').getContext('2d'), {
-                type: 'pie',
-                data: {
-                    labels: ['Positive', 'Neutral', 'Negative'],
-                    datasets: [{
-                        data: [sentimentData.positive, sentimentData.neutral, sentimentData.negative],
-                        backgroundColor: ['#4CAF50', '#FFC107', '#F44336']
-                    }]
-                }
-            });
-
-            new Chart(document.getElementById('engagementChart').getContext('2d'), {
-                type: 'bar',
-                data: {
-                    labels: ['Likes', 'Shares', 'Views'],
-                    datasets: [{
-                        label: 'Engagement Metrics',
-                        data: [engagement.likes, engagement.shares, engagement.views],
-                        backgroundColor: ['#2196F3', '#FFC107', '#4CAF50']
-                    }]
-                }
-            });
-        }
-
-        document.addEventListener("DOMContentLoaded", checkLogin);
-    </script>
+    <title>Mi Portafolio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="container mt-5">
-    <h2 class="mb-4 text-center">TikTok Comment Analysis</h2>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">Sobre mí</a></li>
+                <li><a href="project1.html">Portafolio</a></li>
+                <li><a href="analisis.html">Análisis de Publicaciones</a></li>
+                <li><a href="https://www.linkedin.com/in/franvois" target="_blank">LinkedIn</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div id="loginMessage" class="text-center mb-3"></div>
+    <section id="photo">
+        <img src="images/header-image.png.webp" alt="Data Science Banner">
+    </section>
 
-    <button id="tiktok-login" class="btn btn-dark mb-3">
-        <img src="https://www.logo.wine/a/logo/TikTok/TikTok-Logo.wine.svg" alt="TikTok Logo" width="20">
-        Log in with TikTok
-    </button>
+    <main>
+        <section id="about">
+            <h2>Sobre mí</h2>
+            <section id="photo-perfil">
+                <img src="perfil.jpg" alt="Foto de Jenner Baquero">
+            </section>
+            <p>Soy un científico de datos con una profunda pasión por las ciencias humanistas.
+                Mi objetivo es utilizar mis conocimientos en ciencia de datos para optimizar y mejorar la calidad de vida humana.
+            </p>
+        </section>
 
-    <div id="analysisSection" style="display: none;">
-        <div class="input-group mb-3">
-            <input type="text" id="videoURL" class="form-control" placeholder="Enter your TikTok video link">
-            <button class="btn btn-primary" onclick="generateFakeData()">Analyze Video</button>
-        </div>
+        <!-- TikTok Login Section -->
+        <section id="tiktok-login-section" class="text-center">
+            <h3>Iniciar sesión con TikTok</h3>
+            <button id="tiktok-login">
+                <img src="https://www.logo.wine/a/logo/TikTok/TikTok-Logo.wine.svg" alt="TikTok Logo" width="30">
+                Log in with TikTok
+            </button>
+            <p id="login-status"></p>
+        </section>
+    </main>
 
-        <div id="summary" class="my-4"></div>
+    <footer>
+        <p>&copy; 2024 Jenner Baquero | <a href="privacy.html">Política de Privacidad</a></p>
+    </footer>
 
-        <div class="row">
-            <div class="col-md-6">
-                <canvas id="sentimentChart"></canvas>
-                <p class="text-center"><strong>Sentiment Analysis</strong></p>
-            </div>
-            <div class="col-md-6">
-                <canvas id="engagementChart"></canvas>
-                <p class="text-center"><strong>Engagement Metrics</strong></p>
-            </div>
-        </div>
-    </div>
+    <script>
+        document.getElementById("tiktok-login").addEventListener("click", function() {
+            const clientKey = "sbawhluz9n2v0f51sk";  // Replace with your actual TikTok Client Key
+            const redirectURI = "https://data-web-solutions.software/auth.html";
+            const authURL = `https://www.tiktok.com/auth/authorize/?client_key=${clientKey}&scope=user.info.basic&response_type=code&redirect_uri=${encodeURIComponent(redirectURI)}`;
+
+            console.log("Redirecting to:", authURL);  // Debugging: Check if URL is correct
+            window.location.href = authURL;
+        });
+
+        // Check if logged in
+        const authCode = localStorage.getItem('tiktokAuthCode');
+        if (authCode) {
+            document.getElementById("login-status").innerHTML = `<strong>Logged in with TikTok!</strong>`;
+        }
+    </script>
 </body>
 </html>
